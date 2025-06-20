@@ -16,6 +16,6 @@ export async function POST(request: Request) {
   if (user.password != password)
     return Response.json({ message: "Incorrect Password!" });
 
-  const token = await signToken(user)
+  const token = await signToken({ id : user.id})
   return Response.json({ token: token });
 }
